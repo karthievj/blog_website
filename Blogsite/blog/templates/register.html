@@ -1,0 +1,63 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center custom-cardhead">
+                    <h2>Register your detail</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'register' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="fname" class="form=label custom-label">First name</label>
+                            <input type="text" class="form-control custom-input" id="fname" name="fname">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lname" class="form=label custom-label">Last name</label>
+                            <input type="text" class="form-control custom-input" id="lname" name="lname">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dob" class="form=label custom-label">Date of Birth</label>
+                            <input type="date" class="form-control custom-input" id="dob" name="dob">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Age" class="form=label custom-label">Age</label>
+                            <input type="number" class="form-control custom-input" min="14" id="age" name="age">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="mnumber" class="form=label custom-label">Mobile number</label>
+                            <input type="number" class="form-control custom-input" id="mnumber" name="mnumber">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form=label custom-label">Email Address</label>
+                            <input type="email" class="form-control custom-input" id="email" name="email">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form=label custom-label">Password</label>
+                            <input type="password" class="form-control custom-input" id="password" name="password">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password1" class="form=label custom-label">Confirm Password</label>
+                            <input type="password" class="form-control custom-input" id="password1" name="password1">
+                        </div>
+                        <button type="submit" class="btn btn-primary custom-btn">Register</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

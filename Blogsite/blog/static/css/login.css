@@ -1,0 +1,35 @@
+/* Custom styles for input fields */
+
+/* Style for form labels */
+.custom-label {
+    font-weight: bold;      /* Makes the text bold */
+    color: #0d00ff;           /* Sets the text color to green */
+}
+
+.custom-input {
+    border-radius: 20px; /* Rounded corners */
+    border: 2px solid #6970d5; /* Custom border color */
+    padding: 10px 15px; /* Custom padding */
+    background-color: #f8f9fa; /* Light gray background */
+    transition: border-color 0.3s ease; /* Smooth transition */
+}
+
+.custom-input:focus {
+    border-color: #e5e9ed; /* Blue border on focus */
+    box-shadow: #007bff; /* Add subtle shadow on focus */
+}
+
+.custom-btn{
+    display: block;       /* Makes the button a block-level element */
+    margin: 0 auto;      
+
+}
+
+.custom-cardhead{
+    background-color: #0d00ff; /* Set background color */
+    color: rgb(252, 252, 252);              /* Set text color */
+    padding: 15px;            /* Add padding */
+    border-radius: 10px 10px 0 0; /* Rounded corners at the top */
+    font-size: 1.25rem;       /* Increase font size */
+    font-weight: bold;        /* Make text bold */
+}
