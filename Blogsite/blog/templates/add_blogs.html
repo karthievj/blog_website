@@ -1,0 +1,11 @@
+{%extends 'base.html' %}
+{% block content %}
+<form method="post" action="/add_blogs/">
+    {%csrf_token%}
+    <div class="container mt-4">
+        {{form.as_p}}
+        <button class="btn btn-primary">Add blog</button>
+    </div>
+
+</form>
+{% endblock %}

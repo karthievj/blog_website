@@ -26,6 +26,12 @@ urlpatterns = [
     path('register/',views.register,name="register"),
     path('login_user/',views.login_user,name='login_user'),
     path('logout_user/',views.logout_user,name='logout_user'),
-    path('reset_password/',views.reset_password,name="reset_password")
+    path('reset_password/',views.reset_password,name="reset_password"),
+
+    #BlogPost
+
+    path('add_blogs/',views.add_blogs,name="add_blogs"),
+    path('my_post/',views.my_post,name="my_post")
+
 
 ]

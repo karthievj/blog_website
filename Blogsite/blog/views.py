@@ -2,7 +2,9 @@ from django.shortcuts import render,redirect,HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate ,login, logout
-from .models import Profile
+from .models import Profile ,BlogPost
+from django.contrib.auth.decorators import login_required
+from .forms import BlogPostForm
 
 # Create your views here.
 
@@ -62,6 +64,30 @@ def logout_user(request):
 
 def reset_password(request):
     return HttpResponse("reset your password")
+
+
+@login_required(login_url='/login')
+def add_blogs(request):
+    if request.method=="POST":
+        form = BlogPostForm(data=request.POST)
+        if form.is_valid():
+            blogpost = form.save(commit=False)
+            blogpost.author = request.user
+            blogpost.save()
+            messages.success(request,"Blog post added successfully")
+            return redirect("/my_post")
+    else:
+        form = BlogPostForm()
+    return render(request,"add_blogs.html",{"form":form})
+
+@login_required(login_url='/login')
+def my_post(request):
+    user = request.user
+    mypost = BlogPost.objects.filter(author=user)
+    data = {'mypost':mypost}
+    return render(request,"mypost.html",context=data)
+
+
 
 
 

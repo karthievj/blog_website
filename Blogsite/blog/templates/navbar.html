@@ -8,10 +8,13 @@
     {% if user.is_authenticated %}
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-item nav-link active" href="#">{{user.username}}<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active">Hi...{{user.first_name}}<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-item nav-link active" href="#">Add Blog<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="/add_blogs/">Add Blog<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link active" href="/my_post/">My posts<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-item nav-link active" href="#">Profile<span class="sr-only">(current)</span></a>
