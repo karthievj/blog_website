@@ -51,7 +51,7 @@ def login_user(request):
         if user is not None:
             login(request,user)
             messages.success(request,"Successfully logged in...")
-            return redirect("/")
+            return redirect("/my_post")
         else:
             messages.error(request,"Invalid login details ")
         return render(request,"home.html")
@@ -86,6 +86,14 @@ def my_post(request):
     mypost = BlogPost.objects.filter(author=user)
     data = {'mypost':mypost}
     return render(request,"mypost.html",context=data)
+
+def all_posts(request):
+    # all_post = BlogPost.objects.all()
+    all_post = BlogPost.objects.filter().order_by('-date_time')
+    return render(request,"home.html",{'all_post':all_post})
+
+
+
 
 
 

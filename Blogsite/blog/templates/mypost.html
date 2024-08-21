@@ -1,15 +1,18 @@
-{%extends 'base.html' %}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+<link rel="stylesheet" href="{% static 'css/mypost.css' %}">
+<div class="container mt-5 mb-3">
+  <div class="row">
+    {% for post in mypost %}
+    <div class="card custom-card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content | truncatechars:100}}</p>
+        <a href="#" class="btn btn-primary">Read more</a>
+      </div>
     </div>
+    {% endfor %}
   </div>
-  {% for post in mypost %}
-  {{post.title}}
-
-  {% endfor %}
-
+</div>
 {% endblock %}

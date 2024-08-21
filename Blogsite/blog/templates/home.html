@@ -1,7 +1,20 @@
 {%extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-
-<h1>This is my home page</h1>
+<link rel="stylesheet" href="{% static 'css/mypost.css' %}">
+<div class="container mt-5 mb-3">
+    <div class="row">
+      {% for post in all_post %}
+      <div class="card custom-card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content | truncatechars:100}}</p>
+          <a href="/register/" class="btn btn-primary">Register to Read more</a>
+          <p class="card-text">Posted by : {{post.author}} at {{post.date_time}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 
 {% endblock content %}
