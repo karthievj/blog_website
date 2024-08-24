@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/mypost.css' %}">
+<div class="container mt-5 mb-3">
+  <div class="row">
+    {% for post in single_post %}
+    <div class="card custom-card">
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

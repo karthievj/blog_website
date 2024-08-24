@@ -1,0 +1,53 @@
+/* Container for Messages */
+.messages {
+    margin: 20px auto; /* Center the messages container */
+    max-width: 800px; /* Limit width */
+}
+
+/* Base Style for Alert Messages */
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space between messages */
+    font-size: 1rem; /* Font size */
+    transition: opacity 0.3s ease; /* Smooth fade-out effect */
+}
+
+/* Success Message */
+.alert-success {
+    background-color: #d4edda; /* Light green background */
+    border-color: #c3e6cb; /* Green border */
+    color: #000000; /* Dark green text */
+}
+
+/* Error Message */
+.alert-error {
+    background-color: #f8d7da; /* Light red background */
+    border-color: #f5c6cb; /* Red border */
+    color: #721c24; /* Dark red text */
+}
+
+/* Warning Message */
+.alert-warning {
+    background-color: #fff3cd; /* Light yellow background */
+    border-color: #ffeeba; /* Yellow border */
+    color: #856404; /* Dark yellow text */
+}
+
+/* Info Message */
+.alert-info {
+    background-color: #d1ecf1; /* Light blue background */
+    border-color: #bee5eb; /* Blue border */
+    color: #0c5460; /* Dark blue text */
+}
+
+/* Close Button for Alerts */
+.alert .close {
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.alert .close:hover {
+    opacity: 1;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/mypost.css' %}">
+<div class="card custom-card">
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content}}</p>
+    </div>
+    <div class="container">
+        <h2>Add comments here</h2>
+        <form method="post" action="{% url 'comments' slug=post.slug %}">
+            {%csrf_token%}
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave your comments here" name="content"></textarea>
+                <br><button type="submit" class="btn btn-primary">Comment</button>
+            </div>
+        </form>
+
+        <div class="container">
+            <h2>All comments ({{comments.count}})</h2>
+            {%for comment in comments%}
+            <div class="card1">
+                <div class="header">
+                    <p style="font-size:20px;">Commented by : {{comment.user}}</p>
+                </div>
+            </div>
+            <div clas="card-body">
+                <p class="card-text" style="font-size:15px">{{comment.content}}</p>
+                <p style="font-size:15px">At : {{comment.date_time}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

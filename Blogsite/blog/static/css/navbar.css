@@ -1,0 +1,103 @@
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #030303; /* Background color */
+}
+
+/* Navbar Brand (Logo) */
+.navbar-brand {
+    font-family: 'Arial', sans-serif; /* Font style */
+    font-size: 1.8rem; /* Larger font size */
+    color: #f9f6f5; /* Logo color */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 2px; /* Spacing between letters */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition without scale */
+}
+
+/* Hover Effect for the Logo */
+.navbar-brand:hover {
+    color: #ffa07a; /* Change color on hover */
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+
+/* Navbar Menu */
+.navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* Navbar Menu Items */
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+/* Navbar Links */
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    padding: 5px 10px; /* Space inside the link */
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid transparent; /* Transparent border */
+}
+
+/* Hover Effect for Links */
+.navbar-menu a:hover {
+    border: 2px solid #ff6347; /* Border on hover */
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.5); /* Optional: Shadow effect */
+    color: #ff6347; /* Change color on hover */
+}
+
+/* Search Form Container */
+.search-form {
+    display: flex;
+    align-items: center;
+    max-width: 400px; /* Adjust to fit your layout */
+}
+
+/* Search Input Field */
+.search-field {
+    flex: 1; /* Takes up remaining space */
+    padding: 10px; /* Space inside the field */
+    border: 2px solid #ccc; /* Border around the field */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    margin-right: 10px; /* Space between the input field and the button */
+}
+
+/* Focus State for Search Field */
+.search-field:focus {
+    border-color: #ff6347; /* Border color on focus */
+    box-shadow: 0 0 5px rgba(255, 99, 71, 0.5); /* Subtle shadow on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Search Button */
+.search-button {
+    flex: 1; /* Takes up remaining space */
+    padding: 10px 20px; /* Space inside the button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ee3030; /* Button background color */
+    color: #fff; /* Text color */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    margin-right: 10px; /* Space between the input field and the button */
+
+}
+
+/* Hover Effect for Search Button */
+.search-button:hover {
+    background-color: #ffa07a; /* Change background color on hover */
+}

@@ -1,46 +1,43 @@
 /* Card Container */
 .custom-card {
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 25rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(249, 0, 0, 0.1);
     overflow: hidden;
-    background-color: #dbd1d1;
+    background-color: #edeeea;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 20px;
     font-family: Arial, sans-serif;
 }
 
-/* Card Image */
-.custom-card{
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 /* Card Content */
 .custom-card .card-body {
     padding: 20px;
+    
 }
 
 /* Card Title */
 .custom-card .card-title {
     font-size: 1.5rem;
+    font-style: Bold;
     margin: 0 0 10px;
-    color: #000000;
+    color: #0d0e0e;
+    text-align: center;
 }
 
 /* Card Text */
 .custom-card .card-text {
     font-size: 1rem;
+    font-style: Italic;
     margin-bottom: 20px;
-    color: #281717;
+    color: #0a0a0a;
 }
 
 /* Card Button */
 .custom-card .card-button {
     display: inline-block;
-    padding: 10px 15px;
-    background-color: #007bff;
+    padding: 15px 15px;
+    background-color: #92b2d5;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -55,4 +52,28 @@
 .custom-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.post-date {
+    font-size: 1.1rem; /* Slightly smaller font size for date */
+    color: #302e2e; /* Lighter color for date text */
+    font-style: bold; /* Italicize the date text */
+    margin-left: 5px; /* Space between the author and date */
+}
+
+/* Style for the welcome message container */
+.welcome-message {
+    background-color: #f8f9fa; /* Light background color */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2px; /* Padding inside the container */
+    margin: 2px 0; /* Margin around the container */
+    text-align: center; /* Center-align the text */
+}
+
+/* Style for the username */
+.username {
+    font-weight: bold; /* Bold text for the username */
+    color: #007bff; /* Primary color for the username */
+    font-size: 1.2rem; /* Slightly larger font size for emphasis */
 }

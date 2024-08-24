@@ -1,15 +1,15 @@
 {% block content %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<nav class="navbar navbar-expand-lg">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <a class="navbar-brand" href="{% url 'home' %}">Blog Site</a>
     {% if user.is_authenticated %}
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-item nav-link active">Hi...{{user.first_name}}<span class="sr-only">(current)</span></a>
-      </li>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-menu">
       <li class="nav-item">
         <a class="nav-item nav-link active" href="/add_blogs/">Add Blog<span class="sr-only">(current)</span></a>
       </li>
@@ -17,24 +17,40 @@
         <a class="nav-item nav-link active" href="/my_post/">My posts<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-item nav-link active" href="#">Profile<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="/viewprofile/">Profile<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-item nav-link active" href="{% url 'logout_user' %}">Sign Out <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="{% url 'logout_user' %}">Sign Out <span
+            class="sr-only">(current)</span></a>
       </li>
     {% else %}
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-menu">
       <li class="nav-item">
-        <a class="nav-item nav-link active" href="{% url 'login_user' %}">Log In<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="{% url 'login_user' %}">Log In<span
+            class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-item nav-link active" href="{% url 'register' %}">Register<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href="{% url 'register' %}">Register<span
+            class="sr-only">(current)</span></a>
       </li>
-    {% endif %}
+      {% endif %}
     </ul>
-    {% comment %} <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>  {% endcomment %}
+    <form class="form-inline search-form" method="post" action="/search/" onsubmit="return validateSearch()">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2 search-field" type="search" placeholder="Enter title to search" aria-label="Search" name="searched"
+        id="searched">
+      <button class="btn btn-outline-success my-2 my-sm-0 search-button" type="submit">Search</button>
+    </form>
   </div>
 </nav>
-{% endblock %} 
+<script>
+  function validateSearch() {
+    const searchInput = document.getElementById('search').value;
+    if (searchInput.trim() === "") {
+      alert("Search field cannot be empty!");
+      return false; // Prevent form submission
+    }
+    return true; // Allow form submission
+  }
+</script>
+{% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate ,login, logout
-from .models import Profile ,BlogPost
+from .models import Profile ,BlogPost ,Comments
 from django.contrib.auth.decorators import login_required
 from .forms import BlogPostForm
 
@@ -54,7 +54,7 @@ def login_user(request):
             return redirect("/my_post")
         else:
             messages.error(request,"Invalid login details ")
-        return render(request,"home.html")
+            return redirect("/login_user")
     return render(request,"login.html")
 
 def logout_user(request):
@@ -83,19 +83,54 @@ def add_blogs(request):
 @login_required(login_url='/login')
 def my_post(request):
     user = request.user
-    mypost = BlogPost.objects.filter(author=user)
+    mypost = BlogPost.objects.filter(author=user).order_by('-date_time')
     data = {'mypost':mypost}
     return render(request,"mypost.html",context=data)
 
 def all_posts(request):
+
     # all_post = BlogPost.objects.all()
     all_post = BlogPost.objects.filter().order_by('-date_time')
     return render(request,"home.html",{'all_post':all_post})
 
+def search(request):
+    if request.method == "POST":
+       searched = request.POST['searched']
+       print(searched,'fkjakljsflk')
+       if searched!="":
+            search_blogs = BlogPost.objects.filter(title__contains=searched).order_by('-date_time')
+            if search_blogs:
+                blog_count = len(search_blogs)
+                data = {'searched':searched,'search_blogs':search_blogs,'blog_count':blog_count}
+                return render(request, "search.html",context=data)
+            else:
+                messages.success(request,f"No blogs related to {searched}...Search different blogs")
+                return redirect('home')
+       else:
+            messages.success(request,f"Enter any title to search")
+            return redirect('home')
+    else:
+        return render(request,"search.html",{})
 
 
+def posts(request,slug):
+    single_post = BlogPost.objects.filter(slug=slug).order_by('-date_time')
+    return render(request,"post.html",context={'single_post':single_post})
 
+def blog_comments(request,slug):
+    post = BlogPost.objects.filter(slug=slug).first()
+    comments = Comments.objects.filter(blog=post)
+    data = {'post':post,'comments':comments}
+    if request.method=="POST":
+        user=request.user
+        content=request.POST['content']
+        comment = Comments(user=user,content=content,blog=post)
+        comment.save()
+    return render(request,"blogs_comments.html",context=data)
 
+def viewprofile(request):
+    return HttpResponse("view profile")
+    
 
 
 

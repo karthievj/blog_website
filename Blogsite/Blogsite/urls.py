@@ -27,11 +27,12 @@ urlpatterns = [
     path('login_user/',views.login_user,name='login_user'),
     path('logout_user/',views.logout_user,name='logout_user'),
     path('reset_password/',views.reset_password,name="reset_password"),
+    path('viewprofile/',views.viewprofile,name="viewprofile"),
 
     #BlogPost
-
     path('add_blogs/',views.add_blogs,name="add_blogs"),
-    path('my_post/',views.my_post,name="my_post")
-
-
+    path('my_post/',views.my_post,name="my_post"),
+    path('search/',views.search,name="search"),
+    path('posts/<str:slug>/',views.posts,name="posts"),
+    path('comments/<str:slug>',views.blog_comments,name="comments")
 ]

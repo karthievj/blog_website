@@ -2,22 +2,19 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/mypost.css' %}">
-
 <div class="container mt-5 mb-3">
-  <div class="welcome-message">
-    <span class="username">Welcome back....{{ user.first_name | upper}}</span>
-  </div>
+    <h1>Showing {{blog_count}} Blogs related to {{searched}}</h1>
   <div class="row">
-    {% for post in mypost %}
-    <div class="card custom-card">
+    {% for post in search_blogs %}
+    <div class="card custom-card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">{{post.title}}</h5>
         <p class="card-text">{{post.content | truncatechars:100}}</p>
-        <p class="post-date">Posted at : {{post.date_time}}</p>
-        <a href="{% url 'posts' slug=post.slug %}" class="btn btn-primary">Read more</a>
+        <a href="{% url 'posts' slug=post.slug %}" class="btn btn-primary" >Read more</a>
       </div>
     </div>
     {% endfor %}
   </div>
 </div>
+
 {% endblock %}

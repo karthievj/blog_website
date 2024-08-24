@@ -3,7 +3,7 @@
 /* Style for form labels */
 .custom-label {
     font-weight: bold;      /* Makes the text bold */
-    color: #0d00ff;           /* Sets the text color to green */
+    color: #040404;           /* Sets the text color to green */
 }
 
 .custom-input {
@@ -25,7 +25,7 @@
 
 }
 .custom-cardhead{
-    background-color: #0d00ff; /* Set background color */
+    background-color: #010101; /* Set background color */
     color: rgb(252, 252, 252);              /* Set text color */
     padding: 15px;            /* Add padding */
     border-radius: 10px 10px 0 0; /* Rounded corners at the top */

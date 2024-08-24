@@ -5,12 +5,17 @@
 <div class="container mt-5 mb-3">
     <div class="row">
       {% for post in all_post %}
-      <div class="card custom-card" style="width: 18rem;">
+      <div class="card custom-card">
         <div class="card-body">
           <h5 class="card-title">{{post.title}}</h5>
           <p class="card-text">{{post.content | truncatechars:100}}</p>
+          <p class="post-date">Posted by : {{post.author}} at {{post.date_time}}</p>
+          {% if user.is_authenticated %}
+          <a href="{% url 'posts' slug=post.slug %}" class="btn btn-primary">Read more</a>
+          <a href="{% url 'comments' slug=post.slug %}" class="btn btn-primary">Add comments here</a>
+          {% else %}
           <a href="/register/" class="btn btn-primary">Register to Read more</a>
-          <p class="card-text">Posted by : {{post.author}} at {{post.date_time}}</p>
+          {% endif %}
         </div>
       </div>
       {% endfor %}
